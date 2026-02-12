@@ -1,2 +1,4 @@
-awsdevops.pem
-awsdevops.pem
+*.pem
+*.ppk
+*.key
+.env
