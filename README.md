@@ -1,33 +1,45 @@
-# AWS DevOps Project 1 - Flask Web App
+# AWS DevOps CI/CD Project – Flask App Deployment to EC2
+Automated CI/CD pipeline that deploys a Dockerized Flask application to AWS EC2 using GitHub Actions.
+This project demonstrates a complete CI/CD pipeline using GitHub Actions to automatically deploy a Dockerized Flask application to an AWS EC2 instance.
 
-## Overview
-This project demonstrates deploying a Python Flask web application on an AWS EC2 instance using Docker. Nginx is used as a reverse proxy to serve the app on port 80. The project also includes version control with GitHub.
+## Architecture
+- GitHub (Source Code)
+- GitHub Actions (CI/CD)
+- AWS EC2 (Deployment Server)
+- Docker (Containerization)
+- Flask (Python Web App)
+- 
+## CI/CD Workflow
+1. Code is pushed to the `main` branch.
+2. GitHub Actions workflow is triggered.
+3. Workflow connects to EC2 using SSH.
+4. Latest code is pulled.
+5. Docker image is rebuilt.
+6. Existing container is stopped and removed.
+7. New container is started on port 5000.
 
-## Features
-- Dockerized Flask application
-- Nginx reverse proxy for port forwarding (80 → 5000)
-- EC2 instance setup with proper security group rules
-- Code managed in GitHub repository
+## Deployment Details
+- EC2: Amazon Linux 2023
+- Instance Type: t2.micro
+- Dockerized Flask App
+- Port: 5000
+- Elastic IP attached
+- Application URL: http://54.85.151.49:5000
 
-## Setup Instructions
-1. Launch an EC2 instance (Amazon Linux 2)
-2. SSH into the instance:
-   ```bash
-  ssh -i "awsdevops.pem" ec2-user@ec2-107-20-182-167.compute-1.amazonaws.com   
-3.Install Docker and Nginx:
-  sudo yum update -y
-sudo yum install docker nginx -y
-sudo systemctl start docker
-sudo systemctl enable docker
-sudo systemctl start nginx
-sudo systemctl enable nginx
-4.Build and run the Docker container for the Flask app:
+## Run Locally
 docker build -t flaskapp .
 docker run -d -p 5000:5000 flaskapp
-5.Configure Nginx to forward traffic to Flask on port 5000
-6.Open EC2 security group for SSH (22) and HTTP (80)
-7. Access the app in your browser
-   http://107.20.182.167
+
+## What I Learned
+- How to launch and configure an EC2 instance
+- Managing Security Groups and opening required ports
+- Attaching and using an Elastic IP
+- Creating and managing SSH keys securely
+- Dockerizing a Flask application
+- Writing a CI/CD pipeline using GitHub Actions
+- Using GitHub Secrets for secure deployment
+- Automating container rebuild and restart on deployment
+- Troubleshooting SSH authentication issues
 
 
 
