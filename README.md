@@ -42,4 +42,7 @@ docker run -d -p 5000:5000 flaskapp
 - Troubleshooting SSH authentication issues
 
 Test Project 2 workflow
+## Live Deployment Screenshot
+
+![Deployment Screenshot](deployment.png)
 
