@@ -41,7 +41,6 @@ docker run -d -p 5000:5000 flaskapp
 - Automating container rebuild and restart on deployment
 - Troubleshooting SSH authentication issues
 
-Test Project 2 workflow
 ## Live Deployment Screenshot
 
 ![Deployment Screenshot](deployment.png)
